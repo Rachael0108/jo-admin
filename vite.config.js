@@ -14,6 +14,7 @@ export default defineConfig(({mode, command})=> {
     }
   })
   return {
+    base: './',
     build: {
       rollupOptions: {
         output: {
