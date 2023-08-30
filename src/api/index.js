@@ -12,3 +12,5 @@ export const GET = (url, data = {}) => {
         params: data
     })
 }
+
+

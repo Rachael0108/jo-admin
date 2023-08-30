@@ -1,4 +1,3 @@
-
 <template>
   <div class="flex">
     <el-row :gutter="10">
@@ -14,7 +13,7 @@
         >
           <el-menu-item index="/">
             <el-icon :size="20">
-              <HomeFilled />
+              <HomeFilled/>
             </el-icon>
             <template #title>首页</template>
           </el-menu-item>
@@ -38,12 +37,14 @@
                         v-for="(threeItem, i) in subItem.children"
                         :key="i"
                         :index="threeItem.route"
-                    >{{ threeItem.name }}</el-menu-item
+                    >{{ threeItem.name }}
+                    </el-menu-item
                     >
                   </el-sub-menu>
                   <el-menu-item v-else :index="subItem.route" :key="subItem.id">{{
                       subItem.name
-                    }}</el-menu-item>
+                    }}
+                  </el-menu-item>
                 </template>
               </el-sub-menu>
             </template>
@@ -58,50 +59,35 @@
           </template>
         </el-menu>
       </el-col>
-      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"
-      >
-        <div class="contents">
-          <el-breadcrumb separator="/">
-            <el-breadcrumb-item :to="{ path: '/' }">home</el-breadcrumb-item>
-            <el-breadcrumb-item
-            ><a href="/">{{breadCrumb}}</a></el-breadcrumb-item
-            >
-          </el-breadcrumb>
-          <router-view v-slot="{ Component }">
-            <keep-alive>
-              <component :is="Component" />
-            </keep-alive>
-          </router-view>
-        </div>
-      </el-col>
     </el-row>
   </div>
-  <!--  <div styles="display: flex">-->
-  <!--    <el-scrollbar ref="scrollbarRef" height="400px" styles="width: 200px" always @scroll="scroll">-->
-  <!--      <div ref="innerRef" styles="width: 200px">-->
-  <!--        <p v-for="item in 20" :key="item" class="scrollbar-demo-item">-->
-  <!--          {{ item }}-->
-  <!--        </p>-->
-  <!--      </div>-->
-  <!--    </el-scrollbar>-->
-
-  <!--    <div :styles="{ height: '150px' }">-->
-  <!--      <van-slider v-model="value" vertical @change="handleSlider" />-->
-  <!--    </div>-->
-  <!--  </div>-->
+  <div class="contents">
+    <el-breadcrumb separator="/">
+      <el-breadcrumb-item :to="{ path: '/' }">home</el-breadcrumb-item>
+      <el-breadcrumb-item
+      ><a href="/">{{ breadCrumb }}</a></el-breadcrumb-item
+      >
+    </el-breadcrumb>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component"/>
+      </keep-alive>
+    </router-view>
+  </div>
 </template>
 
 <script setup lang="ts">
 import {ref, onMounted, computed} from 'vue';
 import {useRouter} from 'vue-router';
-import { ElScrollbar } from 'element-plus'
+import {ElScrollbar} from 'element-plus'
+
 const count = ref(0)
 const router = useRouter()
-const breadCrumb = computed(()=>{
+const breadCrumb = computed(() => {
   return router.currentRoute.value.meta.title
 })
 const increment = () => count.value++
-const menuList  = ref([
+const menuList = ref([
   // {
   //   name: '组件封装',
   //   id: '1',
@@ -138,17 +124,52 @@ const menuList  = ref([
     id: '5',
     icon: 'Location',
     route: 'threeEarth',
+  },
+  {
+    name: '3D江苏',
+    id: '6',
+    icon: 'SuzhouMap',
+    route: 'suzhouMap',
+  },
+  {
+    name: '不规则水波',
+    id: '7',
+    icon: 'waveAni',
+    route: 'waveAni',
   }
 ])
-onMounted(()=>{
+onMounted(() => {
 
 })
+const send = ()=>{
+  sendCode().then((res)=>{
+    console.log(res)
+
+  })
+}
+const sendCode = async () => {
+  const res = await fetch('/api/email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email: '664689413@qq.com'
+    })
+  })
+  const data = await res.json
+  console.log(data)
+}
 </script>
 <style>
 .el-menu-vertical-demo {
   width: 200px;
 }
+
 .contents {
-  padding: 5rem;
+  position: absolute;
+  top: 1rem;
+  padding: 0 5rem;
+  margin-left: 10rem;
 }
 </style>

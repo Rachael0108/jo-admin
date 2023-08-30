@@ -30,5 +30,9 @@ app.config.globalProperties.$filters = {
     }
 }
 app.mount('#app')
+
+app.config.errorHandler = function (err, vm, info) {
+    console.log('errorHandle', err)
+}
 // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
 

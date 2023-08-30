@@ -1,6 +1,8 @@
 let express = require('express')
 let app = express()
-let cors = require('cors')/*
+let cors = require('cors')
+
+/*
   中间件解析 json 和 urllencode格式的数据
  */
 let bodyParser = require('body-parser')
@@ -21,7 +23,6 @@ app.all('*', function(req, res, next) {
 });
 
 const port = process.env.PORT|| 80;
-
 app.listen(port, ()=>{
     console.log(port)
     console.log('server success ！')

@@ -3,7 +3,7 @@ import type { App } from 'vue';
 import { createRouter, createWebHashHistory } from "vue-router";
 import { basicRoutes } from './routes';
 
-//白名单应该包含静态路由
+//白名单应该包含静态路由, 类似任务详情的路由也应放入
 const WHITE_NAME_LIST: string[] = [];
 const getRouteNames = (array: any[]) =>
     array.forEach((item)=>{

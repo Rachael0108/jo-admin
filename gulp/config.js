@@ -10,9 +10,9 @@ module.exports = {
         }
     },
     css: {
-        all: src + "/**/*.css",
-        src: src + "./css/*.css",
-        dest: dest + "/css",
+        all: src + "/**/*.cssPractice",
+        src: src + "./cssPractice/*.cssPractice",
+        dest: dest + "/cssPractice",
         settings: {}
     }
 }

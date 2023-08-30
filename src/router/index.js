@@ -56,6 +56,22 @@ const routes = [
                     title: '3D地球',
                 },
             },
+            {
+                path: '/suzhouMap',
+                name: 'suzhouMap',
+                component: () => import('@/views/suzhouMap.vue'),
+                meta: {
+                    title: '3D苏州',
+                },
+            },
+            {
+                path: '/waveAni',
+                name: 'waveAni',
+                component: () => import('@/views/cssPractice/waveAni.vue'),
+                meta: {
+                    title: '不规则水波',
+                },
+            },
         ]
     },
 

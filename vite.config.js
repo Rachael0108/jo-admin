@@ -31,7 +31,13 @@ export default defineConfig(({mode, command})=> {
       },
     },
     plugins: [
-      vue(),
+      vue({
+        template: {
+          compilerOptions: {
+            isCustomElement: tag => tag.startsWith('fc-')
+          }
+        }
+      }),
       Components({
         resolvers: [VantResolver()],
       }),
