@@ -7,15 +7,24 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseButton: typeof import('./src/components/encap/baseButton.vue')['default']
     BaseModal: typeof import('./src/components/baseModal.vue')['default']
+    ChildrenComp: typeof import('./src/components/childrenComp.vue')['default']
     CreateModal: typeof import('./src/components/encap/createModal.vue')['default']
     CustomImage: typeof import('./src/components/CustomImage.vue')['default']
+    Demo: typeof import('./package/Overlay/demo.vue')['default']
+    Example: typeof import('./src/components/skeletonView/example/index.vue')['default']
+    GrandChildComp: typeof import('./src/components/grandChildComp.vue')['default']
     IntelInpt: typeof import('./src/components/intelInput/intelInpt.vue')['default']
     Login: typeof import('./src/components/login/index.vue')['default']
     LoginForm: typeof import('./src/components/login/loginForm.vue')['default']
+    Popup: typeof import('./package/Toast/popup.vue')['default']
     RegisterForm: typeof import('./src/components/login/registerForm.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ScrollSlider: typeof import('./src/components/scroll-slider.vue')['default']
+    SkeletonView: typeof import('./src/components/skeletonView/index.vue')['default']
+    Toast: typeof import('./package/Toast/Toast')['default']
+    UseDialog: typeof import('./src/components/useDialog.vue')['default']
+    VanPopup: typeof import('vant/es')['Popup']
   }
 }
 

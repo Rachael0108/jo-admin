@@ -5,7 +5,7 @@ const routes = [
     //     path: '/',
     //     redirect: '/login',
     //     name: 'Login',
-    //     component: () => import('../components/login/index.vue'),
+    //     component: () => import('../components/login/Toast.tsx'),
     //     meta: {
     //         title: '登录',
     //     },
@@ -16,6 +16,14 @@ const routes = [
         component: () => import('../views/layout/Home.vue'),
         name: 'Home',
         children: [
+            {
+                path: '/',
+                name: 'home',
+                component: () => import('@/views/index.vue'),
+                meta: {
+                    title: '首页',
+                },
+            },
             {
                 path: '/baseComponent',
                 name: 'baseComponent',

@@ -4,6 +4,7 @@ import path from "path";
 import Components from 'unplugin-vue-components/vite';
 import { VantResolver } from 'unplugin-vue-components/resolvers';
 import fs from 'fs';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 
 // https://vitejs.dev/config/
 export default defineConfig(({mode, command})=> {
@@ -38,6 +39,7 @@ export default defineConfig(({mode, command})=> {
           }
         }
       }),
+      vueJsx(),
       Components({
         resolvers: [VantResolver()],
       }),

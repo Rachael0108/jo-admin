@@ -1,6 +1,10 @@
 {
   "presets": [
     "env",
-    "stage-0"
+    "stage-0",
+    "@vue/cli-plugin-babel/preset"
+  ],
+  "plugins": [
+    "@vue/babel-preset-jsx"
   ]
 }

@@ -1,2 +1,2 @@
-import requireDir from "require-dir";
+const requireDir = require('require-dir');
 requireDir('./gulp/tasks', {recurse: true})

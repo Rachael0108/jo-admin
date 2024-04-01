@@ -8,7 +8,7 @@ import { Dialog } from 'vant';
 import * as Icons from '@element-plus/icons-vue'
 import Particles from 'particles.vue3';
 import * as XLSX from 'xlsx';
-import {Slider} from "vant";
+import {Slider, Popup} from "vant";
 import dayjs from "dayjs";
 
 const app = createApp(App)
@@ -20,7 +20,7 @@ app.use(Particles)
 
 app.use(ElementPlus, { size: 'small', zIndex: 3000 })
 app.use(router)
-app.use(Slider)
+app.use(Slider).use(Popup)
 
 // 挂载格式化日期到全局
 app.config.globalProperties.$filters = {

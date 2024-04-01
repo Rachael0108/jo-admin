@@ -1,10 +1,18 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import { ref } from 'vue';
+import UseDialog from '@/components/useDialog.vue'
+
+const show = ref(false)
+const showPop = () => {
+  useDialog.value.show()
+}
+const useDialog = ref(null)
 </script>
 
 <template>
-  <router-view></router-view>
+  <el-button @click="showPop">click</el-button>
+  <UseDialog ref="useDialog"/>
+<!--  <router-view></router-view>-->
 </template>
 
 <style>
@@ -16,4 +24,5 @@
   color: #2c3e50;
   width: 100%;
 }
+
 </style>
